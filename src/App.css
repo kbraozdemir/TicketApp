@@ -1,10 +1,23 @@
 .App {
+  height: 100%;
+  margin: 0;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #dddddd;
+}
+
+.App-content{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-content > .Footer{
+  margin-top: auto;
+
 }
 
 .App-logo {

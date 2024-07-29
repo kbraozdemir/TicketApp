@@ -12,12 +12,14 @@ function App() {
   return (
     <div className="App">
       <SideBar />
-      <CssBaseline />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movie/:id" element={<MovieDetailsPage />} />
-      </Routes>
-      <Footer />
+      <div className='App-content'>
+        <CssBaseline />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movie/:id" element={<MovieDetailsPage />} />
+        </Routes>
+        <Footer />
+      </div>
     </div>
       
   );
