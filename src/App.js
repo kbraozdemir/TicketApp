@@ -1,27 +1,28 @@
 import React from 'react';
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { CssBaseline } from '@mui/material';
+import { Route, Routes } from 'react-router-dom';
+import SideBar from './components/SideBar';
 import HomePage from './pages/HomePage';
 import MovieDetailsPage from './pages/MovieDetailsPage';
-import { CssBaseline, } from '@mui/material';
+import MovieList from './components/MovieList';
 import Footer from './components/Footer';
-import SideBar from './components/SideBar';
-
+import './App.css';
 
 function App() {
   return (
     <div className="App">
       <SideBar />
-      <div className='App-content'>
+      <div className="App-content">
         <CssBaseline />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movie/:id" element={<MovieDetailsPage />} />
+          <Route path="/movies" element={<MovieList />} />
         </Routes>
-        <Footer />
       </div>
+      <Footer />
     </div>
-      
   );
 }
+
 export default App;

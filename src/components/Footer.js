@@ -1,18 +1,23 @@
 import React from 'react';
-import { Box, Typography, Container, Link } from '@mui/material';
+import { Box, Container, Typography, Link } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 const Footer = () => {
+  const theme = useTheme();
+
   return (
     <Box
       component="footer"
       sx={{
+        position: 'fixed',
+        bottom: 0,
+        width: '100%',
         py: 3,
         px: 2,
         mt: 'auto',
-        backgroundColor: (theme) =>
-          theme.palette.mode === 'light'
-            ? theme.palette.grey[200]
-            : theme.palette.grey[800],
+        backgroundColor: theme.palette.mode === 'light'
+          ? theme.palette.grey[200]
+          : theme.palette.grey[800],
       }}
     >
       <Container maxWidth="sm">
