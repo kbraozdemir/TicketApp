@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
@@ -25,12 +26,12 @@ import DangerousIcon from '@mui/icons-material/Dangerous';
 const drawerWidth = 240;
 
 const categories = [
-  {name: 'Vizyondaki Filmler', icon :<MovieIcon/>},
-  {name: 'Tiyatro', icon :<TheaterComedyIcon/>},
-  {name: 'Konserler', icon :<MusicVideoIcon/>},
-  {name: 'Turneler', icon :<FestivalIcon/>},
-  {name: 'Bize Ulaşın', icon :<LocalPhoneIcon/>},
-  {name: 'Şikayet', icon :<DangerousIcon/>},
+  {name: 'Vizyondaki Filmler', icon :<MovieIcon/>, path: '/movies'},
+  {name: 'Tiyatro', icon :<TheaterComedyIcon/>, path: '/theater'},
+  {name: 'Konserler', icon :<MusicVideoIcon/>, path: '/concerts'},
+  {name: 'Turneler', icon :<FestivalIcon/>, path: '/festivals'},
+  {name: 'Bize Ulaşın', icon :<LocalPhoneIcon/>, path: '/contact'},
+  {name: 'Şikayet', icon :<DangerousIcon/>, path: '/complaint'},
 ]
 
 const openedMixin = (theme) => ({
@@ -142,10 +143,12 @@ export default function MiniDrawer() {
         <Divider />
         <List>
         {categories.map((category, index) => (
-          <ListItem button key={category.name}>
-            <ListItemIcon>
-              {category.icon}
-            </ListItemIcon>
+          <ListItem
+            button key={category.name}
+            component={Link}
+            to={category.path}
+          >
+          <ListItemIcon>{category.icon}</ListItemIcon>
             {open && <ListItemText primary={category.name} />}
           </ListItem>
         ))}

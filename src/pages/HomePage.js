@@ -1,35 +1,47 @@
-import React from "react";
-import movies from "../components/Movies";
-import { Grid, Card, CardContent, CardMedia, Typography, CardActionArea } from '@mui/material';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Grid, Card, CardContent, CardMedia, Typography, CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
+import { Margin } from "@mui/icons-material";
+
+const API_KEY = "aed2e23994ac1e7f4ae953cd48b44ed3";
+const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=tr-TR`;
 
 const HomePage = () => {
-    return (
-      <Grid container spacing={2}>
-        {movies.map((movie) => (
-          <Grid item xs={12} sm={6} md={4} key={movie.id}>
-            <Card>
-              <CardActionArea component={Link} to={`/movie/${movie.id}`}>
-                <CardMedia
-                  component="img"
-                  height="300"
-                  image={movie.posterUrl}
-                  alt={`${movie.title} poster`}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {movie.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {movie.description}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    );
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    axios.get(URL)
+      .then((res) => setMovies(res.data.results))
+      .catch((err) => console.error("API hatası:", err));
+  }, []);
+
+  return (
+    <Grid container spacing={2} padding={2} sx={{ marginTop: "80px" }}> 
+      {movies.map((movie) => (
+        <Grid item xs={12} sm={6} md={4} key={movie.id}>
+          <Card>
+            <CardActionArea component={Link} to={`/movie/${movie.id}`}>
+              <CardMedia
+                component="img"
+                height="300"
+                image={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                alt={`${movie.title} poster`}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h6" component="div">
+                  {movie.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {movie.release_date} • ⭐ {movie.vote_average}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+      ))}
+    </Grid>
+  );
 };
-  
+
 export default HomePage;

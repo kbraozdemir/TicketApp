@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import MovieDetailsPage from './pages/MovieDetailsPage';
 import MovieList from './components/MovieList';
 import Footer from './components/Footer';
+import ContactPage from './pages/ContactPage';
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/movie/:id" element={<MovieDetailsPage />} />
           <Route path="/movies" element={<MovieList />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </div>
       <Footer />
