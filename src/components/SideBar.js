@@ -22,6 +22,7 @@ import MusicVideoIcon from '@mui/icons-material/MusicVideo';
 import FestivalIcon from '@mui/icons-material/Festival';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import DangerousIcon from '@mui/icons-material/Dangerous';
+import zIndex from '@mui/material/styles/zIndex';
 
 const drawerWidth = 240;
 
@@ -115,8 +116,8 @@ export default function MiniDrawer() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
+      <AppBar position="fixed" sx={{zIndex: 1201}} open={open}>
+        <Toolbar sx={{minHeight: '64px'}}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
