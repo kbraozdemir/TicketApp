@@ -130,8 +130,18 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Biletçi
+          <Typography
+            variant="h6"
+            component={Link}
+            to="/"
+            sx={{
+              textDecoration: "none",
+              color: "inherit",
+              fontWeight: "bold",
+              cursor: "pointer"
+            }}
+          >
+            Biletçi 🎟️
           </Typography>
         </Toolbar>
       </AppBar>
