@@ -141,7 +141,7 @@ export default function MiniDrawer() {
               cursor: "pointer"
             }}
           >
-            Biletçi 🎟️
+            Biletçi
           </Typography>
         </Toolbar>
       </AppBar>

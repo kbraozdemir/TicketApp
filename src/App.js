@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import ContactPage from './pages/ContactPage';
 import './App.css';
 import TicketForm from './components/TicketForm';
+import Confirmation from './components/Confirmation';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/movies" element={<MovieList />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/ticket/:id" element={<TicketForm />} />
+          <Route path="/confirmation" element={<Confirmation />} />
         </Routes>
       </div>
       <Footer />

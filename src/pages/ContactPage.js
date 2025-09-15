@@ -12,7 +12,7 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Burada form verisini işleyebilirsin (örneğin API'ye gönderme)
+    // Form verilerini işleme (örneğin, bir API'ye gönderme) burada yapılabilir
     setSubmitted(true);
   };
 
