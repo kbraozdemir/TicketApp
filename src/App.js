@@ -10,6 +10,9 @@ import ContactPage from './pages/ContactPage';
 import './App.css';
 import TicketForm from './components/TicketForm';
 import Confirmation from './components/Confirmation';
+import TheatreSection from './components/TheatreSection';
+import ConcertSection from './components/ConcertSection';
+import TourSection from './components/TourSection';
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/ticket/:id" element={<TicketForm />} />
           <Route path="/confirmation" element={<Confirmation />} />
+          <Route path="/theater" element={<TheatreSection />} />
+          <Route path="/concerts" element={<ConcertSection />} />
+          <Route path="/festivals" element={<TourSection />} />
         </Routes>
       </div>
       <Footer />
